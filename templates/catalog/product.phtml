@@ -1,0 +1,21 @@
+<?php
+/**
+ * Шаблон страницы продукта
+ *
+ * @package Gksoft\Controllers
+ * @author  Galina Kozyreva <kozyreva.galinka@gmail.com>
+ *
+ * @var $product Данные продукта
+ */
+?>
+
+<?php $view->extend('main_layout.phtml') ?>
+
+<h1><?=$product['title'] ?></h1>
+
+<p><?=$product['description'] ?></p>
+<p>Цена: <?=$product['price'] ?> Руб.</p>
+
+<p><a href="/cart/add/<?=$product['id'] ?>">Добавить в корзину</a></p>
+
+<p><a href="/">Перейти на главную страницу</a></p>

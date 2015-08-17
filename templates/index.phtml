@@ -1,0 +1,25 @@
+<?php
+/**
+ * Шаблон главной страницы
+ *
+ * @package Gksoft\Controllers
+ * @author  Galina Kozyreva <kozyreva.galinka@gmail.com>
+ *
+ * @var array $categoriesTree Дерево категорий
+ */
+?>
+
+<?php $view->extend('main_layout.phtml') ?>
+
+<h1>Главная страница</h1>
+
+<p>Категории товаров</p>
+
+<?php foreach ($categoriesTree as $category) : ?>
+    <div><a href="/category/<?=$category['url']?>"><?=$category['name'] ?></a></div>
+    <?php if (!empty($category['_children'])) : ?>
+        <?php foreach ($category['_children'] as $category) : ?>
+            <div style="margin-left: 20px"><a href="/category/<?=$category['url']?>"><?=$category['name'] ?></a></div>
+        <?php endforeach ?>
+    <?php endif ?>
+<?php endforeach ?>

@@ -1,0 +1,22 @@
+<?php
+/**
+ * Лейаут основной HTML-разметки
+ *
+ * @package Gksoft\Controllers
+ * @author  Galina Kozyreva <kozyreva.galinka@gmail.com>
+ *
+ * @var array $category Массив данных категории
+ */
+?>
+
+<?php $view->extend('main_layout.phtml') ?>
+
+<p>Продукты категории <?=$category['name']?></p>
+
+<?php foreach ($products as $product) : ?>
+    <p>Название: <?=$product['title'] ?></p>
+    <p>Цена: <?=$product['price'] ?> Руб.</p>
+    <p><a href="/product/<?=$product['url'] ?>">Перейти к товару</a></p>
+<?php endforeach ?>
+
+<p><a href="/">Перейти на главную страницу</a></p>

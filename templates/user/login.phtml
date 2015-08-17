@@ -1,0 +1,28 @@
+<?php
+/**
+ * Шаблон страницы авторизации
+ *
+ * @package Gksoft\Controllers
+ * @author  Galina Kozyreva <kozyreva.galinka@gmail.com>
+ *
+ * @var array $loginFormData Введенные данные
+ * @var array $error         Ошибки
+ */
+?>
+
+<?php $view->extend('html_layout.phtml') ?>
+
+<p>Авторизация</p>
+
+<?php foreach ($errors as $error) : ?>
+    <p style="color: red"><?=$error?></p>
+<?php endforeach ?>
+
+<form name="auth" method="post" action="/login/">
+    Адрес электронной почты: <br />
+    <input name="email" type="text" size="25" maxlength="30" value="<?=$loginFormData['email']?>" /> <br />
+    Пароль: <br />
+    <input name="password" type="password" size="25" maxlength="30" /> <br />
+    <?php // <input name="remember" type="checkbox" value="1" /> Запомнить <br /> ?>
+    <input type="submit" name="enter" value="Вход" />
+</form>

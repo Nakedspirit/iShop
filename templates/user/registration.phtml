@@ -1,0 +1,44 @@
+<?php
+/**
+ * Шаблон страницы регистрации
+ *
+ * @package Gksoft\Controllers
+ * @author  Galina Kozyreva <kozyreva.galinka@gmail.com>
+ *
+ * @var bool|null $registrationStatus   Статус регистрации
+ * @var array     $registrationFormData Данные формы регистрации
+ */
+?>
+
+<?php $view->extend('html_layout.phtml') ?>
+
+<p>Регистрация</p>
+
+<?php if ($registrationStatus) :?>
+    <p>Вы успешно зарегистрировались на сайте!</p>
+    <p><a href="/">Перейти на главную страницу</a></p>
+<?php else  : ?>
+    <?php if ($registrationStatus === false) : ?>
+        <p style="color: red">Форма заполенена неверно. Пожалуйста, проверьте введенные данные.</p>
+    <?php endif ?>
+    <form name="registration" method="post" action="/registration/">
+        Имя *: <br />
+        <input name="first_name" type="text" size="25" maxlength="30" value="<?=$registrationFormData['firstName']?>" /> <br />
+        Фамилия *: <br />
+        <input name="last_name" type="text" size="25" maxlength="30" value="<?=$registrationFormData['lastName']?>" /> <br />
+
+        Адрес электронной почты *: <br />
+        <input name="email" type="text" size="25" maxlength="30" value="<?=$registrationFormData['email']?>" /> <br />
+        Пароль *: <br />
+        <input name="password" type="password" size="25" maxlength="30" /> <br />
+        Подтверждение пароля *: <br />
+        <input name="password_confirmation" type="password" size="25" maxlength="30" /> <br />
+
+        Адрес *: <br />
+        <input name="address" type="text" size="25" maxlength="100" value="<?=$registrationFormData['address']?>" /> <br />
+        Номер телефон: <br />
+        <input name="phone" type="text" size="25" maxlength="20" value="<?=$registrationFormData['phone']?>" /> <br />
+
+        <input type="submit" name="enter" value="Зарегистрироваться" />
+    </form>
+<?php endif ?>

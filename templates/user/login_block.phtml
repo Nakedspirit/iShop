@@ -1,0 +1,21 @@
+<?php
+/**
+ * Шаблон блока авторизации
+ *
+ * @package Gksoft\Controllers
+ * @author  Galina Kozyreva <kozyreva.galinka@gmail.com>
+ *
+ * @var array $user Массив пользовательских данных
+ */
+?>
+
+<div id="login_block">
+    <?php if(!$user) : ?>
+        <a href="/login/">Вход</a> <a href="/registration/">Регистрация</a>
+    <?php else : ?>
+        <?=$user['first_name']?> <?=$user['last_name']?>
+        <form name="logout" method="post" action="/logout/">
+            <input type="submit" name="logout" value="Выход" />
+        </form>
+    <? endif ?>
+</div>

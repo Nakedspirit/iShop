@@ -1,0 +1,16 @@
+<?php
+/**
+ * Главный лейаут сайта
+ *
+ * @package Gksoft\Controllers
+ * @author  Galina Kozyreva <kozyreva.galinka@gmail.com>
+ */
+?>
+
+<?php $view->extend('html_layout.phtml') ?>
+
+<?=$view['actions']->render(
+    new \Symfony\Component\HttpKernel\Controller\ControllerReference('controllers.users:loginBlockAction')
+)?>
+
+<?php $view['slots']->output('_content') ?>
